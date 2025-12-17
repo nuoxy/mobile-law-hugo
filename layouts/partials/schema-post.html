@@ -1,0 +1,32 @@
+{{- $authorName := "Alex Polo" -}}
+{{- $authorUrl := printf "%sabout/" .Site.BaseURL -}}
+{{- $pageUrl := .Permalink -}}
+{{- $title := .Title -}}
+{{- $desc := .Params.description | default (.Summary | plainify) -}}
+{{- $datePublished := .Date.Format "2006-01-02" -}}
+{{- $dateModified := (.Lastmod | default .Date).Format "2006-01-02" -}}
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BlogPosting",
+  "mainEntityOfPage":{"@type":"WebPage","@id":"{{ $pageUrl }}"},
+  "headline":{{ $title | jsonify }},
+  "description":{{ $desc | jsonify }},
+  "inLanguage":"en",
+  "datePublished":"{{ $datePublished }}",
+  "dateModified":"{{ $dateModified }}",
+  "author":{
+    "@type":"Person",
+    "name":{{ $authorName | jsonify }},
+    "url":"{{ $authorUrl }}",
+    "jobTitle":"Attorney (Israel)",
+    "knowsLanguage":["en","he"]
+  },
+  "publisher":{
+    "@type":"Organization",
+    "name":"Alex Polo Law Office",
+    "url":"{{ .Site.BaseURL }}"
+  }
+}
+</script>

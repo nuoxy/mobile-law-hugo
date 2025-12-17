@@ -12,6 +12,7 @@
     <meta http-equiv="Content-Security-Policy"
         content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://umami.is;">
     <meta name="referrer" content="strict-origin-when-cross-origin">
+    <link rel="canonical" href="{{ .Permalink }}" />
 
     <!-- Google Fonts: Outfit -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,6 +20,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;700;800&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Schema -->
+    {{ partial "schema-site.html" . }}
+    {{ if .IsPage }}
+    {{ partial "schema-post.html" . }}
+    {{ partial "schema-faq.html" . }}
+    {{ end }}
 </head>
 
 <body>
@@ -43,7 +51,7 @@
                 <span class="mark" aria-hidden="true"></span>
                 <span>
                     Alex Polo, Adv.
-                    <small>Business & Tax Focus • Mobile-first service</small>
+                    <small>Business & Tax Focus</small>
                 </span>
             </a>
 

@@ -1,3 +1,4 @@
-baseURL: https://example.org/
+baseURL: https://YOURDOMAIN/
+canonifyURLs: true
 languageCode: en-us
 title: "Alex Polo, Adv."
