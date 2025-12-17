@@ -95,6 +95,19 @@ button {
     animation: slideUpFade 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.5s both;
 }
 
+/* Scroll Animation */
+.reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+    will-change: opacity, transform;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 .wrap {
     max-width: var(--max);
     margin: 0 auto;
