@@ -1,0 +1,35 @@
+{{ define "main" }}
+<section class="section" style="margin-top:20px;">
+    <div class="sectionHeader">
+        <h2>{{ .Title }}</h2>
+        {{ if eq .Section "blog" }}
+        <a href="/blog/">Back to Blog</a>
+        {{ else }}
+        <a href="/">Home</a>
+        {{ end }}
+    </div>
+    <div class="sectionBody">
+        <div style="color: var(--muted); font-size: 15px; line-height: 1.6;">
+            {{ .Content }}
+        </div>
+
+        {{ if eq .Section "blog" }}
+        <div style="margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--line);">
+            <button class="btn"
+                style="background: rgba(255,255,255,0.08); border:0; padding: 10px 16px; font-size:13px;"
+                onclick="sharePage('{{ .Title }}', '{{ .Permalink }}')">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" style="margin-right:6px">
+                    <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M16 6l-4-4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                    <path d="M12 2v13" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                </svg>
+                Share this post
+            </button>
+        </div>
+        {{ end }}
+    </div>
+</section>
+{{ end }}

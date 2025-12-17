@@ -1,0 +1,52 @@
+{{ define "main" }}
+<section class="section" style="margin-top:20px;">
+    <div class="sectionHeader">
+        <h2>{{ .Title }}</h2>
+        <a href="/">Home</a>
+    </div>
+    <div class="sectionBody">
+        <!-- Content from Markdown -->
+        <div style="margin-bottom: 20px; color: var(--muted); font-size: 14px;">
+            {{ .Content }}
+        </div>
+
+        <!-- Accordion Items -->
+        <div style="display:grid; gap:10px;">
+            {{ range .Params.faqs }}
+            {{ $id := .question | urlize }}
+            <div class="faqItem" id="{{ $id }}" data-open="false">
+                <button class="faqBtn" type="button">
+                    <span>{{ .question }}</span>
+                    <svg class="chev" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                    </svg>
+                </button>
+                <div class="faqPanel">
+                    <div>
+                        {{ .answer }}
+                        <div style="margin-top: 16px; padding-top: 16px; border-top: 1px dashed var(--line);">
+                            <button class="btn"
+                                style="background: rgba(255,255,255,0.08); border:0; padding: 8px 14px; font-size:13px;"
+                                onclick="sharePage('{{ .question }}', '{{ $.Permalink }}#{{ $id }}')">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="margin-right:6px">
+                                    <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                    <path d="M16 6l-4-4-4 4" stroke="currentColor" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                    <path d="M12 2v13" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                                Share this question
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{ end }}
+        </div>
+    </div>
+</section>
+
+<!-- Re-initialize FAQ JS for this page because the script in baseof handles it, 
+     but let's ensure it works. The baseof script runs at end of body, so it should find these elements. -->
+{{ end }}
