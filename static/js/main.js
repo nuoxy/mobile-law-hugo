@@ -52,21 +52,6 @@ document.addEventListener("DOMContentLoaded", () => {
     menuLinks.forEach(link => {
         link.addEventListener('click', () => toggleMenu(false));
     });
-
-    // Scroll Animations
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('active');
-                observer.unobserve(entry.target); // Only animate once
-            }
-        });
-    }, {
-        threshold: 0.1,
-        rootMargin: "0px 0px -50px 0px" // Trigger slightly before element is fully in view
-    });
-
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 });
 
 // Global Share Function (attached to window for onclick access)
