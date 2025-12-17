@@ -346,9 +346,9 @@ h1 {
 }
 
 .headshot {
-    width: 56px;
-    height: 56px;
-    border-radius: 18px;
+    width: 72px;
+    height: 72px;
+    border-radius: 22px;
     border: 1px solid rgba(255, 255, 255, .18);
     background:
         radial-gradient(circle at 30% 30%, rgba(255, 255, 255, .24), transparent 60%),
@@ -356,6 +356,7 @@ h1 {
     overflow: hidden;
     flex: 0 0 auto;
     position: relative;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .headshot::before {
