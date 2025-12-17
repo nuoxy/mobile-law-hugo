@@ -17,8 +17,10 @@
             <div class="faqItem" id="{{ $id }}" data-open="false">
                 <button class="faqBtn" type="button">
                     <span>{{ .question }}</span>
-                    <svg class="chev" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                        <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                    <svg class="chev" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="m6 9 6 6 6-6" />
                     </svg>
                 </button>
                 <div class="faqPanel">
@@ -28,13 +30,14 @@
                             <button class="btn"
                                 style="background: rgba(255,255,255,0.08); border:0; padding: 8px 14px; font-size:13px;"
                                 onclick="sharePage('{{ .question }}', '{{ $.Permalink }}#{{ $id }}')">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="margin-right:6px">
-                                    <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8" stroke="currentColor"
-                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                    <path d="M16 6l-4-4-4 4" stroke="currentColor" stroke-width="2"
-                                        stroke-linecap="round" stroke-linejoin="round" />
-                                    <path d="M12 2v13" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" />
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" style="margin-right:6px">
+                                    <circle cx="18" cy="5" r="3" />
+                                    <circle cx="6" cy="12" r="3" />
+                                    <circle cx="18" cy="19" r="3" />
+                                    <line x1="8.59" x2="15.42" y1="13.51" y2="17.49" />
+                                    <line x1="15.41" x2="8.59" y1="6.51" y2="10.49" />
                                 </svg>
                                 Share this question
                             </button>
